@@ -47,7 +47,7 @@ Model {
       Type		      "Cell"
       Dimension		      2
       Cell		      "HDLSubsystem"
-      Cell		      "signal"
+      Cell		      "$bdroot"
       PropName		      "mdlProps"
     }
   }
@@ -130,7 +130,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 31 13:09:39 2018"
+  LastModifiedDate	  "Wed Aug 01 10:29:52 2018"
   RTWModifiedTimeStamp	  455016717
   ModelVersionFormat	  "1.%<AutoIncrement:40>"
   SampleTimeColors	  off
@@ -1150,7 +1150,7 @@ Model {
   System {
     Name		    "signal"
     Location		    [60, 133, 1768, 1011]
-    Open		    on
+    Open		    off
     PortBlocksUseCompactNotation off
     SetDomainSpec	    off
     DomainSpecType	    "Deduce"
@@ -1920,9 +1920,6 @@ Stateflow {
     screen		    [1 1 3600 1200 1.180555555555556]
     treeNode		    [0 3 0 0]
     viewObj		    2
-    visible		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
