@@ -43,9 +43,9 @@ end
 %     J = (v+1) ^ -1;
 %     res = fmincon(matlabFunction(J),0,[],[],[],[],0.4,2.4,@(v)mycon(v,m));
 % else
-    err = (d + dy2 + atan(1.3 * (dy2 + 1.06 * sin(dfai2 + c_fai))))^2;
-    J = err + (v+1) ^-1;
-    [res] = fmincon(matlabFunction(J), 0, [],[],[],[],0.4,2.4);
+%     err = (d + dy2 + atan(1.3 * (dy2 + 1.06 * sin(dfai2 + c_fai))))^2;
+%     J = err;
+%     [res] = fmincon(matlabFunction(J), 0, [],[],[],[],0.4,2.4);
 % end
 dx2 = double(subs(dx2, v, res));
 dy2 = double(subs(dy2, v, res));
