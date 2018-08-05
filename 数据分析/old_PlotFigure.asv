@@ -277,13 +277,31 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
 
     dx_data = dx_mat.dx_sim;
     dy_data = dy_mat.dy_sim;
-    d_sim = zeros(1, length(dx_data) + 1);
-    x_data = zeros(1, length(dx_data) + 1);
-    y_data = zeros(1, length(dx_data) + 1);
-    N = 1;                             %仿真步长
+    d_sim = zeros(1, length(x_mid));
+    x_data = zeros(1, length(x_mid));
+    y_data = zeros(1, length(x_mid));
+    N = 10;                             %仿真步长
     data_num = fix(length(dx_data) / N) * N;
     
-
+%     for n = 1:fix(length(dx_data) / N)
+%         for j = 1 : N
+%             num = (n - 1) * N + j;
+%             if(j == 1)
+%                 x_data(num) = x_mid(k, num);
+%                 y_data(num) = y_mid(k, num);
+%             else
+%                 x_data(num) = x_data(num - 1) + dy_data(num - 1);
+%                 y_data(num) = y_data(num - 1) + dx_data(num - 1);
+%             end
+%         end
+%         if n == 1
+%             x_data(1) = x_mid(k, 1);
+%             y_data(1) = y_mid(k, 1);
+%         else
+%             x_data(n) = x_data(n - 1) + dy_data(n - 1);
+%             y_data(n) = y_data(n - 1) + dx_data(n - 1);
+%         end
+%     end
 
 %     for n = 1 : length(x_mid) - data_num
 %         num = data_num + n;
@@ -406,15 +424,6 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
         end
     end
     
-    for n = 1:fix(length(dx_data) / N) + 1
-        if n == 1
-            x_data(1) = x_mid_1(k, 1);
-            y_data(1) = y_mid_1(k, 1);
-        else
-            x_data(n) = x_mid_1(k, n - 1) + dy_data(n - 1);
-            y_data(n) = y_mid_1(k, n - 1) + dx_data(n - 1);
-        end
-    end
     for n = 1 : numline - 1
         comp(n) = calculFai(n) - 1.7 * d_theta(n);
     end
@@ -428,10 +437,6 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
         dx(n) = x_mid_1(n + 1) - x_mid_1(n);
         dy(n) = y_mid_1(n + 1) - y_mid_1(n);
         dis(n + 1) = dis(n) + sqrt(dx(n) * dx(n) + dy(n) * dy(n));
-        if abs(dx(n) / dx_data(n)) < 2
-            u(N) = dx(n) / dx_data(n);
-            N = N + 1;
-        end
     end
     
     %数据时间间隔
