@@ -4,7 +4,7 @@ clear all;
 clc;
 path = mfilename('fullpath'); %%获取当前m文件的绝对路径
 datapath = strrep(path,'old_PlotFigure','data\');%%获取data1文件夹的绝对目录
-Files = dir(fullfile(datapath,'66gps.txt'));%%读取文件夹内的所有文件
+Files = dir(fullfile(datapath,'68gps.txt'));%%读取文件夹内的所有文件
 lengthfiles = length(Files); 
 m=1;
 NUM = 48; %每组数据个数
@@ -426,7 +426,7 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
     for n = 1 : numline - 1
         comp(n) = calculFai(n) - 1.7 * d_theta(n);
     end
-    if(1)
+    if(0)
         figure(m)
         plot(comp)
         m = m + 1;
@@ -439,7 +439,7 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
     end
     
     %数据时间间隔
-    if(1)
+    if(0)
         figure(m)
         plot(time_val, 'ro');
         title('数据时间间隔');
@@ -459,7 +459,7 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
     end
     
     %距离与误差关系
-    if(1)
+    if(0)
        figure(m) 
        plot(dis, d_mid_line);
        hold on
@@ -473,7 +473,7 @@ for k=1:lengthfiles   %%读取第K个文件内的数据
     end
     
     %航向角偏差
-    if(0)
+    if(1)
         figure(m)
         plot(d_theta);
         m = m + 1;
