@@ -1,0 +1,21 @@
+function res = get_degree(input,max)
+    temp = {};
+    temp{1} = [1 1 1 1];
+    temp{2} = [2 1 1 1];
+    temp{3} = [2 2 1 1];
+    temp{4} = [2 2 2 1];
+    temp{5} = [2 2 2 2];
+    for i = 1 : 32
+        temp{i + 5} = temp{2} + i;
+        temp{i + 
+    end
+    if input >= max
+        res = temp{13};
+    elseif input <= -max
+        res = temp{1};
+    else
+        i = 13.0 * (input + max) / (2 * max);
+        res = temp{ceil(i)};
+    end
+end
+

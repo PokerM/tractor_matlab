@@ -1,7 +1,8 @@
 %‘§—µ¡∑£¨”√cmac±∆Ω¸ÀπÃπ∏£À„∑®
 clear;
 max_ = 100;
-w = rand(10,10,4);
+M = 15;
+w = rand(M,M,4);
 var_num = 3;
 m = 4;
 theta = 0;
@@ -13,12 +14,12 @@ alpha = 0.3;
 x(1) = 0;
 y(1) = 0.2;
 fai(1) = 0;
-for i = 1 : max_
     N = 1;
+for i = 1 : max_
     for j = -dis_max : 0.001 : dis_max
         for k = -fai_max : 0.001 : fai_max
-            dis_d = get_degree(j, dis_max);
-            fai_d = get_degree(k, fai_max);
+            dis_d = get_degree(j, dis_max, -dis_max, M);
+            fai_d = get_degree(k, fai_max, -fai_max, M);
             out = 0;
             for n = 1 : m
                 out = out + w(dis_d(n), fai_d(n), n);
