@@ -1,6 +1,5 @@
 function [res,fval,err,comp] = speed_con_new(d, d_fai, c_theta, e_theta)
 T = 0.1;
-dnorth = -d_fai;
 % e_theta = dnorth + atan(1.3 * (d + 1.06 * sin(dnorth))); 
 if c_theta < e_theta
     v_theta = 0.2356;

@@ -1,7 +1,7 @@
 %预训练，用cmac逼近斯坦福算法
 clear;
 max_ = 100;
-w = rand(4,4,4);
+w = rand(10,10,4);
 var_num = 3;
 m = 4;
 theta = 0;
